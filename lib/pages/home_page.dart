@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_ui/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,8 +29,8 @@ class HomePage extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xff0B454B),
-                      Color(0xff072030),
+                      kColorSecondary,
+                      kColorPrimary,
                     ],
                   ),
                 ),
@@ -114,8 +115,16 @@ class HomePage extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: kColorTertiary,
                             borderRadius: BorderRadius.circular(12.0),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xffFEB701),
+                                Color(0xffFEC305),
+                              ],
+                            ),
                           ),
                           child: Icon(
                             Icons.filter_alt_outlined,
@@ -127,6 +136,130 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 30),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Parking Near you",
+                          style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: kColorPrimary,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "View more",
+                              style: GoogleFonts.montserrat(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: kColorTertiary,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 6.0,
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: kColorTertiary,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Container(
+                      width: 160,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: const Offset(4, 4),
+                                ),
+                              ],
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage("assets/images/maps.png"),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Blok C Benyamin",
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: GoogleFonts.montserrat(
+                                      color: kColorPrimary,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                const SizedBox(
+                                  height: 6.0,
+                                ),
+                                Text(
+                                  "Av. Lima 232 mz A",
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: GoogleFonts.montserrat(
+                                    color: kColorPrimary.withOpacity(0.6),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 6.0,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Open",
+                                      style: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xff51BC9E)),
+                                    ),
+                                    const SizedBox(
+                                      width: 6.0,
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        "04:00-12:00",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.montserrat(
+                                          color:
+                                              kColorPrimary.withOpacity(0.55),
+                                          fontSize: 13.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
